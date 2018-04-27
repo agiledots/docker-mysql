@@ -1,0 +1,15 @@
+version: '2'
+services:
+  db:
+    image: mysql
+    environment:
+      MYSQL_DATABASE: emotion
+      MYSQL_USER: shoukii
+      MYSQL_PASSWORD: shouadmin
+      MYSQL_ROOT_PASSWORD: rootadmin
+    ports:
+      - "3306:3306"
+    volumes:
+      - ./data:/var/lib/mysql
+      - ./init/db.sql:/docker-entrypoint-initdb.d/db.sql
+
